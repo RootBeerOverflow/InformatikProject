@@ -1,0 +1,19 @@
+{
+    "name": "WebScraper",
+    "version": "1.0",
+    "description": "Extension som WebScraper NewEgg.com, DBA.dk og Amazon.de",
+    "permissions": [
+        "activeTab",
+        "notifications",
+        "alarms"
+                    ],
+    "browser_action": {
+      "default_popup": "ChromeExtension.html",
+      "default_icon": {
+        "16": "MoneyIcon.png",
+        "32": "MoneyIcon.png",
+        "48": "MoneyIcon.png"
+      }
+    },
+    "manifest_version": 2
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chrome Extension</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    #output {
+      margin-top: 10px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Chrome Extension</h2>
+
+  <label for="inputField">Enter Text:</label>
+  <input type="text" id="inputField" placeholder="Type something...">
+
+  <button onclick="submitData()">Submit</button>
+
+  <div id="output"></div>
+
+  <script>
+    function submitData() {
+      // Retrieve the value entered in the text field
+      var inputValue = document.getElementById("inputField").value;
+
+      // Display the value just below the button
+      var outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = "You entered: " + inputValue;
+    }
+  </script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chrome Extension</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    #output {
+      margin-top: 10px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Chrome Extension</h2>
+
+  <label for="inputField">Enter Text:</label>
+  <input type="text" id="inputField" placeholder="Type something...">
+
+  <button onclick="submitData()">Submit</button>
+
+  <div id="output"></div>
+
+  <script>
+    function submitData() {
+      // Retrieve the value entered in the text field
+      var inputValue = document.getElementById("inputField").value;
+
+      // Display the value just below the button
+      var outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = "You entered: " + inputValue;
+    }
+  </script>
+</body>
+
+</html>
