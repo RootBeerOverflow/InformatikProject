@@ -1,0 +1,80 @@
+from playwright.sync_api import sync_playwright
+from selectolax.parser import HTMLParser
+import webbrowser
+from bs4 import BeautifulSoup
+import requests
+import re
+
+def search_amazon(product_name):
+    webbrowser.open_new_tab("https://www.amazon.de/s?k=" + product_name)
+
+def search_newegg(product_name):
+    webbrowser.open("https://www.newegg.com/p/pl?d=r" + product_name)
+
+def search_dba(product_name):
+    itemContainer = None
+    itemContainer2 = None
+    itemContainer3 = None
+    i = 1
+    while True:
+        try:
+            if i == 1:
+                url = f"https://www.dba.dk/soeg/?soeg={product_name}"
+            else:
+                url = f"https://www.dba.dk/soeg/side-{i}/?soeg={product_name}"
+
+            print(url)
+
+            r = requests.get(url)
+            dom = BeautifulSoup(r.content, 'html.parser')
+
+            if i == 1:
+                itemContainer = dom.find_all("a", class_="listingLink")
+            elif i == 2:
+                itemContainer2 = dom.find_all("a", class_="listingLink")
+            elif i == 3:
+                itemContainer3 = dom.find_all("a", class_="listingLink")
+
+            print(itemContainer)
+            print("Done! ItemContainer 1")
+            print()
+            print(itemContainer2)
+            print("Done! ItemContainer 2")
+            print()
+            print(itemContainer3)
+            print("Done! ItemContainer 3")
+            print()
+
+            i += 1
+            if i == 5:
+                break
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            print("break")
+            print(i)
+            break
+
+def search_product_on_website(website, product_name):
+    if website.lower() == "amazon":
+        search_amazon(product_name)
+    elif website.lower() == "newegg":
+        search_newegg(product_name)
+    elif website.lower() == "dba":
+        search_dba(product_name)
+    else:
+        print("Invalid website choice. Please choose from Amazon, Newegg, or DBA.")
+
+def run():
+    website = input("Search website: ")
+    searchword = input('What do you want? ')
+
+    search_product_on_website(website, searchword)
+
+    # Rest of your code
+    # ...
+
+def main():
+    run()
+
+if __name__ == "__main__":
+    main()
